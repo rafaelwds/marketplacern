@@ -1,24 +1,14 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-7;
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-  },
-  title: {
-    fontSize: 24,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
+import "react-native-gesture-handler";
+import React from "react";
+import { StatusBar } from "react-native";
+
+import Routes from "./routes";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Agência digital wds</Text>
-    </View>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#312e38" />
+      <Routes />
+    </>
   );
 }

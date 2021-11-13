@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/exmed/Projects/Cursos/ReactNative/agdwdsmarketplace/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sr/values-sr.xml",
+            "outputFile": "/home/exmed/Projects/Cursos/marketplacenr/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sr/values-sr.xml",
             "map": [
                 {
                     "source": "/home/exmed/.gradle/caches/transforms-3/69a29bf10bcc958f91385ad904e935b2/transformed/appcompat-1.3.0/res/values-sr/values-sr.xml",
