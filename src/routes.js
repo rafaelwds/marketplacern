@@ -16,6 +16,7 @@ export default function Routes() {
       <Stack.Navigator
         screenOptions={{
           headerShown: true,
+          headerTitleAlign: "center",
           cardStyle: { backgroundColor: "#313746" },
         }}
       >
