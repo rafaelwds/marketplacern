@@ -27,4 +27,4 @@ function* addToCart({ id }) {
   }
 }
 
-export default all([takeLatest("@cart/ADD_SUCCESS", addToCart)]);
+export default all([takeLatest("@cart/ADD_REQUEST", addToCart)]);

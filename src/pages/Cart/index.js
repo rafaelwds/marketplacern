@@ -1,7 +1,11 @@
 import React, { useState, useMemo } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { View } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import EmptyCart from "../../components/EmptyCart";
+
+import * as CartActions from "../../store/modules/cart/actions";
+
 import {
   Container,
   ProductContainer,
@@ -25,24 +29,9 @@ import {
 import formatValue from "../../utils/formatValue";
 
 export default function Cart() {
-  const [products, setProducts] = useState([
-    {
-      id: "1",
-      title: "Assinatura trimestral",
-      image_url:
-        "https://res.cloudinary.com/robertosousa1/image/upload/v1594492578/dio/quarterly_subscription_yjolpc.png",
-      quantity: 1,
-      price: 150,
-    },
-    {
-      id: "2",
-      title: "Assinatura trimestral",
-      image_url:
-        "https://res.cloudinary.com/robertosousa1/image/upload/v1594492578/dio/quarterly_subscription_yjolpc.png",
-      quantity: 3,
-      price: 150,
-    },
-  ]);
+  const dispetch = useDispatch();
+
+  const products = useSelector(({ cart }) => cart);
 
   const cartSize = useMemo(() => {
     return products.length || 0;
@@ -50,7 +39,7 @@ export default function Cart() {
 
   const cartTotal = useMemo(() => {
     const cartAmount = products.reduce((acc, product) => {
-      const totalPrice = acc + product.price * product.quantity;
+      const totalPrice = acc + product.price * product.amount;
       return totalPrice;
     }, 0);
     return formatValue(cartAmount);
@@ -78,10 +67,10 @@ export default function Cart() {
                   </ProductSinglePrice>
 
                   <TotalContainer>
-                    <ProductQuantuty>{`${item.quantity}x`}</ProductQuantuty>
+                    <ProductQuantuty>{`${item.amount}x`}</ProductQuantuty>
 
                     <ProductPrice>
-                      {formatValue(item.price * item.quantity)}
+                      {formatValue(item.price * item.amount)}
                     </ProductPrice>
                   </TotalContainer>
                 </ProductPriceContainer>
